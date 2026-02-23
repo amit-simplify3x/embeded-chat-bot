@@ -9,15 +9,15 @@ export async function getSession() {
     }
 
     try {
-        const result: any = await scalekit.validateToken(accessToken)
+        const result = await scalekit.validateToken(accessToken) as { sub: string }
         const user = await scalekit.user.getUser(result?.sub)
         return user
-    } catch (error: any) {
-        if (error.message.includes("nbf")) {
+    } catch (error) {
+        if (error instanceof Error && error.message.includes("nbf")) {
             try {
                 // Wait 1 second and retry to handle clock skew
                 await new Promise(resolve => setTimeout(resolve, 1000));
-                const result: any = await scalekit.validateToken(accessToken);
+                const result = await scalekit.validateToken(accessToken) as { sub: string };
                 const user = await scalekit.user.getUser(result?.sub);
                 return user;
             } catch (retryError) {

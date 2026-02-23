@@ -59,11 +59,11 @@ or cannot be reasonably answered from it, reply exactly with:
 
         const responseText = result.candidates?.[0]?.content?.parts?.[0]?.text || "No response generated.";
         return NextResponse.json({ message: responseText }, { headers: corsHeaders })
-    } catch (error: any) {
+    } catch (error) {
         console.error("Chat API Error:", error)
         return NextResponse.json({
             error: "Internal Server Error",
-            details: error.message || "No error message available"
+            details: error instanceof Error ? error.message : "No error message available"
         }, { status: 500, headers: corsHeaders })
     }
 }

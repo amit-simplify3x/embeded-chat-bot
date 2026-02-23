@@ -2,10 +2,10 @@ import mongoose, { model, Schema } from "mongoose"
 
 
 interface ISettings {
-    ownerid: String,
-    businessname: String,
-    supportEmail: String,
-    knowledgebase: String,
+    ownerid: string,
+    businessname: string,
+    supportEmail: string,
+    knowledgebase: string,
 
 }
 

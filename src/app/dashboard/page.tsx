@@ -11,7 +11,7 @@ async function Dashboard() {
 
     return (
         <div className="flex items-center justify-center min-h-screen bg-zinc-50">
-            <DashBoardClient ownerid={session?.user?.id!}/>
+            <DashBoardClient ownerid={session?.user?.id ?? ""} />
         </div>
     )
 }

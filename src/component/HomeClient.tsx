@@ -52,7 +52,7 @@ const HomeClient = ({ email }: { email: string }) => {
     }
 
 
-    const firstLetter = email?.split("@")[0]?.[0].toUpperCase()
+    const firstLetter = email?.split("@")[0]?.[0]?.toUpperCase() || ""
 
     return (
         <div className='min-h-screen bg-linear-to-br from-white to-zinc-50 text-zinc-900 overflow-x-hidden flex flex-col'>

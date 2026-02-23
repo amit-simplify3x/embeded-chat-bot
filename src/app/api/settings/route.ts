@@ -12,8 +12,8 @@ export async function POST(req: NextRequest) {
         await connectDB()
         const settings = await Settings.findOneAndUpdate({ ownerid }, { ownerid, businessname: businessName, supportEmail, knowledgebase: knowledgeBase }, { new: true, upsert: true })
         return NextResponse.json({ settings }, { status: 201 })
-    } catch (error: any) {
-        return NextResponse.json({ error: error.message }, { status: 500 })
+    } catch (error) {
+        return NextResponse.json({ error: error instanceof Error ? error.message : "Internal Server Error" }, { status: 500 })
     }
 }
 

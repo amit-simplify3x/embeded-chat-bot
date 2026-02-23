@@ -112,7 +112,7 @@ function DashBoardClient({ ownerid }: { ownerid: string }) {
                     <div className='flex items-center justify-between mb-8'>
                         <div>
                             <h1 className='text-3xl font-bold tracking-tight text-zinc-900'>Settings</h1>
-                            <p className='text-zinc-500 mt-2'>Manage your chatbot's identity and business details.</p>
+                            <p className='text-zinc-500 mt-2'>Manage your chatbot&apos;s identity and business details.</p>
                         </div>
                     </div>
 
@@ -195,7 +195,7 @@ function DashBoardClient({ ownerid }: { ownerid: string }) {
                                             </button>
                                         </div>
                                         <div className='bg-black/50 border border-zinc-700 rounded-xl p-4 font-mono text-sm text-blue-400 break-all leading-relaxed'>
-                                            &lt;script src="{typeof window !== 'undefined' ? window.location.origin : 'http://localhost:3000'}/chatBot.js" data-ownerid="{ownerid}"&gt;&lt;/script&gt;
+                                            {`<script src="${typeof window !== 'undefined' ? window.location.origin : 'http://localhost:3000'}/chatBot.js" data-ownerid="${ownerid}"></script>`}
                                         </div>
                                     </div>
                                     <div className="absolute top-0 right-0 -mt-8 -mr-8 w-32 h-32 bg-blue-500/10 blur-3xl rounded-full"></div>
@@ -231,7 +231,7 @@ function DashBoardClient({ ownerid }: { ownerid: string }) {
                                     <div>
                                         <h4 className="font-medium text-blue-900 mb-2 text-sm">Be Specific</h4>
                                         <p className="text-sm text-blue-800/80 leading-relaxed">
-                                            Instead of "We have fast shipping", say "Shipping takes 2-3 business days within the US".
+                                            Instead of &quot;We have fast shipping&quot;, say &quot;Shipping takes 2-3 business days within the US&quot;.
                                         </p>
                                     </div>
                                     <div>
